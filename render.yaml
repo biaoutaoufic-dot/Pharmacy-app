@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: pharmacy-app
+    env: python
+    plan: free
+    repo: https://github.com/biaoutaoufic-dot/Pharmacy-app.git
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: python pharmacy_app/app.py
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: "8080"
+      - key: FLASK_ENV
+        value: production
+# Note: Do NOT include secrets here. Set SECRET_KEY and ADMIN_PASSWORD in Render Dashboard.
